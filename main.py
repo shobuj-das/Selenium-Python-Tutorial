@@ -13,8 +13,8 @@ sleep(2)
 print(driver.title)
 print(driver.current_url)
 
-search_box = (By.ID,"input")
-driver.find_element(*search_box).send_keys("first script")
+# search_box = (By.ID,"input")
+# driver.find_element(*search_box).send_keys("first script")
 sleep(2)
 
 driver.quit()
