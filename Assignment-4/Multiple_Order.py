@@ -37,8 +37,8 @@ def get_driver():
 
 def log_in():
     driver.get("https://www.saucedemo.com/")
-    driver.find_element(*username_field).send_keys("standard_user")
-    driver.find_element(*password_field).send_keys("secret_sauce")
+    driver.find_element(*username_field).send_keys(username)
+    driver.find_element(*password_field).send_keys(user_password)
     driver.find_element(*login_button).click()
     assert "https://www.saucedemo.com/inventory.html" in driver.current_url, "login failed"
 
@@ -96,25 +96,32 @@ def enter_user_information():
 
 
 # -------------- Locators ---------------------------------------
+#---- login page locators ------
 username_field = (By.ID, "user-name")
 password_field = (By.ID, "password")
 login_button = (By.ID, "login-button")
+username = "standard_user"
+user_password = "secret_sauce"
 
+# ---- inventory page locators
 product_1_add_to_cart_button = (By.ID, "add-to-cart-sauce-labs-backpack")
 cart_badge = (By.CLASS_NAME, "shopping_cart_badge")
 cart_button = (By.CLASS_NAME, "shopping_cart_link")
+product_name = "Sauce Labs Fleece Jacket"
+inventory_item_name = (By.CLASS_NAME, "inventory_item_name ")
+add_to_cart_xpath = "(//button[@class='btn btn_primary btn_small btn_inventory '])"
 
+#----- cart page locators -------
 check_out_button = (By.ID, "checkout")
 
+# ---- customer information locators -----
 first_name_field = (By.ID, "first-name")
 last_name_field = (By.ID, "last-name")
 zip_code_field = (By.ID, "postal-code")
 continue_button = (By.ID, "continue")
 
+# ----- overview page locators ------
 finish_button = (By.ID, "finish")
-
-inventory_item_name = (By.CLASS_NAME, "inventory_item_name ")
-add_to_cart_xpath = "(//button[@class='btn btn_primary btn_small btn_inventory '])"
 
 # --------------------------------------------------------------------
 

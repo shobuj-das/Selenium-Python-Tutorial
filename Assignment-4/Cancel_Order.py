@@ -42,6 +42,7 @@ def log_in():
     driver.find_element(*login_button).click()
     assert "https://www.saucedemo.com/inventory.html" in driver.current_url, "login failed"
 
+
 def add_to_cart():
     driver.find_element(*product_1_add_to_cart_button).click()
     assert "1" in driver.find_element(*cart_badge).text, "Product not added"
@@ -59,6 +60,7 @@ def add_to_cart_by_product_name():
 
     add_to_cart_button = add_to_cart_xpath + "["+str(cart_index)+"]"
     driver.find_element(By.XPATH, add_to_cart_button).click()
+
     time.sleep(3)
 
 def check_out():
@@ -109,7 +111,7 @@ continue_button = (By.ID, "continue")
 
 # ----- overview page locators ------
 finish_button = (By.ID, "finish")
-
+cancel_button = (By.ID, "cancel")
 
 # -------------------------------------------------------
 
