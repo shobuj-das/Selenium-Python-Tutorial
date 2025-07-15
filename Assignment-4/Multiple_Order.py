@@ -48,15 +48,12 @@ def add_to_cart():
     assert "1" in driver.find_element(*cart_badge).text, "Product not added"
 
 def add_to_cart_by_product_name(products):
-    product_name_elements = driver.find_elements(*inventory_item_name)
-    products_list = []
-    for element in product_name_elements:
-        products_list.append(element.text)
-
-    for title in products:
-        index = products_list.index(title)
-        add_to_cart_button = add_to_cart_xpath + "[" + str(index+1) + "]"
-        driver.find_element(By.XPATH, add_to_cart_button).click()
+    for product_title in products:
+        product_name_elements = driver.find_elements(*inventory_item_name)
+        for i in range(len(product_name_elements)):
+            if product_title == product_name_elements[i].text:
+                add_to_cart_button = add_to_cart_xpath + "[" + str(i + 1) + "]"
+                driver.find_element(By.XPATH, add_to_cart_button).click()
 
     time.sleep(3)
 

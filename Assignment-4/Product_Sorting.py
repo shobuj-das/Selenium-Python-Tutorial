@@ -157,4 +157,4 @@ select = Select(dropdown_element)
 select.select_by_value("za")  # Z to A
 validate_product_sort_Z_to_A()
 
-
+print("--- All types of sort validated ---")
