@@ -90,7 +90,7 @@ def get_products_name():
 def validate_product_sort_A_to_Z():
     product_name = get_products_name()
     print("Name(A-Z): ", product_name)
-    flag = True
+    flag = True  # assuming that products are sorted in a to z
     for i in range(len(product_name)-1):
         if product_name[i].lower() <= product_name[i+1].lower():
             continue
@@ -103,7 +103,7 @@ def validate_product_sort_A_to_Z():
 def validate_product_sort_Z_to_A():
     product_name = get_products_name()
     print("Name(Z-A): ",product_name)
-    flag = True
+    flag = True  # assuming that products are sorted in a to z
     for i in range(len(product_name) - 1):
         if product_name[i].lower() >= product_name[i + 1].lower():
             continue
