@@ -58,8 +58,6 @@ def add_to_cart_by_product_name(products):
         add_to_cart_button = add_to_cart_xpath + "[" + str(index+1) + "]"
         driver.find_element(By.XPATH, add_to_cart_button).click()
 
-
-
     time.sleep(3)
 
 def validate_cart_products():

@@ -77,11 +77,12 @@ def enter_user_information():
     driver.find_element(*continue_button).click()
     time.sleep(1)
     assert "https://www.saucedemo.com/checkout-step-two.html" == driver.current_url, "info added"
-    driver.find_element(*finish_button).click()
+    # --- cancel the order -------
+    driver.find_element(*cancel_button).click()
     time.sleep(1)
-    assert "https://www.saucedemo.com/checkout-complete.html" == driver.current_url
+    assert "https://www.saucedemo.com/inventory.html" in driver.current_url, "order canceling failed"
 
-    print("Success---")
+    print("Order cancelled successfully---")
 
 
 # -------------- Locators ---------------------------------------
