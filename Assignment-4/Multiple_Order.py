@@ -5,7 +5,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
 
 def get_driver():
     # 1. Create Chrome Options
@@ -48,12 +50,17 @@ def add_to_cart():
     assert "1" in driver.find_element(*cart_badge).text, "Product not added"
 
 def add_to_cart_by_product_name(products):
+    temp = []
     for product_title in products:
         product_name_elements = driver.find_elements(*inventory_item_name)
         for i in range(len(product_name_elements)):
             if product_title == product_name_elements[i].text:
-                add_to_cart_button = add_to_cart_xpath + "[" + str(i + 1) + "]"
-                driver.find_element(By.XPATH, add_to_cart_button).click()
+                temp.append(i+1)
+
+    temp = sorted(temp,reverse=True)
+    for j in temp:
+        add_to_cart_button = add_to_cart_xpath + "[" + str(j) + "]"
+        driver.find_element(By.XPATH, add_to_cart_button).click()
 
     time.sleep(3)
 
@@ -120,8 +127,9 @@ finish_button = (By.ID, "finish")
 
 # --------------------------------------------------------------------
 
-product_name_list =["Sauce Labs Fleece Jacket","Sauce Labs Onesie"]
+product_name_list =["Sauce Labs Fleece Jacket","Sauce Labs Onesie", "Sauce Labs Backpack"]
 driver = get_driver()
+wait = WebDriverWait(driver,10)
 log_in()
 add_to_cart_by_product_name(product_name_list)
 check_out()
