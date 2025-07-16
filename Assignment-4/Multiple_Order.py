@@ -127,7 +127,7 @@ finish_button = (By.ID, "finish")
 
 # --------------------------------------------------------------------
 
-product_name_list =["Sauce Labs Fleece Jacket","Sauce Labs Onesie", "Sauce Labs Backpack"]
+product_name_list =["Sauce Labs Fleece Jacket","Sauce Labs Backpack","Sauce Labs Onesie","Sauce Labs Bike Light","Test.allTheThings() T-Shirt (Red)" ]
 driver = get_driver()
 wait = WebDriverWait(driver,10)
 log_in()
