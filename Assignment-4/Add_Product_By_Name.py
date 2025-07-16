@@ -79,8 +79,6 @@ def enter_user_information():
     time.sleep(1)
     assert "https://www.saucedemo.com/checkout-complete.html" == driver.current_url
 
-    print("Success---")
-
 
 # -------------- Locators ---------------------------------------
 #---- login page locators ------

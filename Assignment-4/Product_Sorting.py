@@ -112,6 +112,7 @@ def validate_product_sort_Z_to_A():
             break
 
     assert flag == True, "Products are not sorted in Z to A"
+
 # -------------- Locators ---------------------------------------
 #---- login page locators ------
 username_field = (By.ID, "user-name")

@@ -82,8 +82,6 @@ def enter_user_information():
     time.sleep(1)
     assert "https://www.saucedemo.com/inventory.html" in driver.current_url, "order canceling failed"
 
-    print("Order cancelled successfully---")
-
 
 # -------------- Locators ---------------------------------------
 #---- login page locators ------

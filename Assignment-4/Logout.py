@@ -84,6 +84,7 @@ inventory_item_name = (By.CLASS_NAME, "inventory_item_name ")
 add_to_cart_xpath = "(//button[@class='btn btn_primary btn_small btn_inventory '])"
 logout_button = (By.ID, "logout_sidebar_link")
 menu_bar = (By.ID, "react-burger-menu-btn")
+
 # -------------------------------------------------------
 
 driver = get_driver()
