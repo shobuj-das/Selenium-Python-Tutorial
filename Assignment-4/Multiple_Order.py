@@ -94,9 +94,6 @@ def enter_user_information():
     time.sleep(1)
     assert "https://www.saucedemo.com/checkout-complete.html" == driver.current_url
 
-    print("Success---")
-
-
 # -------------- Locators ---------------------------------------
 #---- login page locators ------
 username_field = (By.ID, "user-name")
@@ -134,3 +131,4 @@ log_in()
 add_to_cart_by_product_name(product_name_list)
 check_out()
 enter_user_information()
+print("--- Multiple order successfully added ---")
